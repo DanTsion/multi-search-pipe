@@ -1,27 +1,83 @@
-# MultiSearchPipe
+# Angular 2 / Angular 14 / Search Filter Pipe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
-## Development server
+> Filter search items
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Multi-criteria search in array of objects. Separate with blank space.
 
-## Code scaffolding
+Angular 2 filter to make custom search.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+![demo-image](http://i.imgur.com/dI5Mzvq.gif)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Install
 
-## Running end-to-end tests
+```
+npm i multi-search-pipe --save
+```
+```
+yarn add multi-search-pipe
+```
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Import `MultiSearchPipeModule` to your module
 
-## Further help
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule  } from '@angular/platform-browser';
+import { AppComponent } from './app';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+import { MultiSearchPipeModule } from 'multi-search-pipe';
+
+@NgModule({
+  imports: [BrowserModule, MultiSearchPipeModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+And use pipe in your component after declaring and initializing it in your component:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'example-app',
+  template: `
+    <div>
+        <input type="text" [(ngModel)]="term">
+        <div *ngFor = "let item of items | multiSearch:term" >
+          <p>
+            {{item.name}}
+          </p>
+        </div>
+
+    </div>  
+  `
+})
+
+export class AppComponent {
+  items: string[] = [{ name: "archie" }, { name: "jake" }, { name: "richard" }];
+  term = '';
+}
+```
+
+## Support multi-search-pipe
+
+multi-search-pipe is completely free and open-source. If you find it useful, you can show your support by 🌟 it or sharing it in your social network.
+
+## Contribute
+
+Feel free to contribute ^^
+
+## License
+
+MIT 
+
+## Donation
+
+<a href="https://www.buymeacoffee.com/mimounidan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="⛽ Buy Me A Coffee ! " height="41" width="174"></a>
+
