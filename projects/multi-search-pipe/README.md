@@ -2,6 +2,7 @@
 
 > Update available now ! 
 Consider using the Angular version 15 under the version 3.0.1
+Audit security and fix completed !
 
 > Filter search items
 
