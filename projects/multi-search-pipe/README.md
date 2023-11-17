@@ -1,5 +1,7 @@
-# Angular 2 / Angular 14 / Search Filter Pipe
+# Angular 2 / Angular 15 / Search Filter Pipe
 
+> Update available now ! 
+Consider using the Angular version 15 under the version 3.0.1
 
 > Filter search items
 
